@@ -1,0 +1,9 @@
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script>
+    var socket = io.connect("http://localhost:3000/");
+    
+    socket.on("news", function(data){
+        console.log(data);
+        socket.emit("client login", {clientData : "클라이언트 접속"});
+    });
+</script>
