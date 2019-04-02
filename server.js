@@ -10,7 +10,7 @@ function  handler(req, res) {
             res.writeHead(500);
             return res.end('Error loading index.html');
         }
-        res.writeHead(200);
+        res.writeHead(200,{'Content-Type':'text/html;charset=UTF-8'});
         res.end(data);
     })
 }
@@ -19,7 +19,7 @@ io.on('connection', function (socket) {
    socket.emit('news', {serverData : "서버 작동"});
 
    socket.on('client login', function (data) {
-       console.log(data)
+       console.log(data);
    });
 
    socket.on('disconnect', function () {
